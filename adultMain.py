@@ -8,13 +8,25 @@
 
 
 import os
-import linearClassifierClass
+import linearClassifierClass, dataWranglerClass
 import pandas as pd
 import numpy as np
 
 
 def main():
+
+    #url for the training data for the linear classifier
+    url = "http://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data"
+
     lc = linearClassifierClass.linearClassifier()
+    dw = dataWranglerClass.dataWrangler()
+
+    #get the data from internet without manual download
+    # data is a pandas dataframe
+    data = dw.getData(url)
+    print(data)
+
+
 
 if __name__ == '__main__':
     print(os.path.basename(__file__))
