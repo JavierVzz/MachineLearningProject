@@ -1,7 +1,8 @@
 import os
 
 
-class():
+class dataWrangler():
+
     def __init__(self):
         pass
 
