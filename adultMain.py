@@ -29,10 +29,45 @@ def main():
     data = data.values
 
     age, workclass, fnlwgt, education, educationYrs, marital, occupation, relationship, race, \
-    sex, capitalGain, capitalLoss, hoursWK, country, income = dw.dataPerLabel(data)
+    sex, capitalGain, capitalLoss, hoursWK, country, income = dw.dataPerVariable(data)
 
-    # Releasing space
-    del(data)
+    # Index of columns to Keslerize
+    # 1: workclass
+    # 3: education
+    # 5: marital
+    # 6: occupation
+    # 7: relationship
+    # 8: race
+    # 9: sex
+    # 13: country
+    # 14: income
+    index = [1,3,5,6,7,8,9,13,14]
+
+    # List of Keslers
+    # 0: workclass
+    # 1: education
+    # 2: marital
+    # 3: occupation
+    # 4: relationship
+    # 5: race
+    # 6: sex
+    # 7: country
+    # 8: income
+    keslerList = []
+    np.set_printoptions(edgeitems=9)
+    for i in index:
+        keslerList.append(lc.kesler(data[:,i]))
+
+    workclassKesler = lc.kesler(workclass)
+    educationKesler = lc.kesler(education)
+
+    # Validating Keslers
+    print(keslerList[0] == workclassKesler)
+    print(keslerList[1] == educationKesler)
+    print(len(keslerList))
+
+    #TODO: Modify kesler to handle binary labels
+
 
 
 
