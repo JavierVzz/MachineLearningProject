@@ -29,7 +29,8 @@ class linearClassifier():
         return W_XaT
 
     def keslerWorkclass(self, workclass):
-        pass
+        workLabels = np.unique(workclass)
+        print(workLabels)
 
     def kesler3Labels(self, Xtrain, d=3):
         m = Xtrain.size

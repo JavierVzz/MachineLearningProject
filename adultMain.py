@@ -35,6 +35,7 @@ def main():
     del(data)
 
     print(np.unique(workclass))
+    lc.keslerWorkclass(workclass)
 
 
 
