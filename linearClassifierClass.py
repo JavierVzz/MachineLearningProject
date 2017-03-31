@@ -32,8 +32,15 @@ class linearClassifier():
         workLabels = np.unique(workclass)
         m = workclass.size
         n = workLabels.size
-        print(m)
-        print(n)
+        labels = np.ones((m, n))
+        print(labels)
+        print(labels.shape)
+        labels *= -1
+        print(labels)
+        print(labels.shape)
+        labels[0:0] *= -1
+        print(labels)
+        print(labels.shape)
 
 
     def kesler3Labels(self, Xtrain, d=3):
