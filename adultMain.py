@@ -21,10 +21,22 @@ def main():
     lc = linearClassifierClass.linearClassifier()
     dw = dataWranglerClass.dataWrangler()
 
-    #get the data from internet without manual download
+    # Get the data from internet without manual download
     # data is a pandas dataframe
     data = dw.getData(url)
-    print(data)
+
+    # Pandas data frame to numpy ndarray
+    data = data.values
+
+    age, workclass, fnlwgt, education, educationYrs, marital, occupation, relationship, race, \
+    sex, capitalGain, capitalLoss, hoursWK, country, income = dw.dataPerLabel(data)
+
+    # Releasing space
+    del(data)
+
+
+
+
 
 
 
