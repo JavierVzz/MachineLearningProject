@@ -33,14 +33,16 @@ def main():
 
     # Releasing space
     index = [1,3,5,6,7,8,9,13,14]
-
+    keslerList = []
     np.set_printoptions(edgeitems=9)
     for i in index:
         print(np.unique(data[:,i]))
-    workclassKesler = lc.keslerWorkclass(workclass)
-    print(workclassKesler)
-    educationKesler = lc.keslerWorkclass(education)
-    print(educationKesler)
+        print(lc.kesler(data[:,i]))
+    # workclassKesler = lc.kesler(workclass)
+    # educationKesler = lc.kesler(education)
+
+
+
 
 
 

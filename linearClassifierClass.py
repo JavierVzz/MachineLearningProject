@@ -28,17 +28,17 @@ class linearClassifier():
         W_XaT = np.dot(XaX, W)
         return W_XaT
 
-    def keslerWorkclass(self, workclass):
-        workLabels = np.unique(workclass)
-        m = workclass.size
-        n = workLabels.size
-        labels = np.ones((m, n))
-        labels *= -1
+    def kesler(self, toKesler):
+        labels = np.unique(toKesler)
+        m = toKesler.size
+        n = labels.size
+        kesler = np.ones((m, n))
+        kesler *= -1
         i = 0
-        for label in workLabels:
-            labels[np.where(workclass == label), i] = 1
+        for label in labels:
+            kesler[np.where(toKesler == label), i] = 1
             i += 1
-        return labels
+        return kesler
 
     def kesler3Labels(self, Xtrain, d=3):
         m = Xtrain.size
@@ -104,20 +104,6 @@ class linearClassifier():
         Txd[np.where(T[:,1]==1),0] = 2
         Txd[np.where(T[:,2]==1),0] = 3
         Txd[np.where(T[:,3]==1),0] = 4
-        return Txd
-
-    def kesler(self, T, d = 6):
-        m, n = T.shape
-        Txd = np.ones((m,d))
-        Txd[np.where(T == 0),:] = [ 1, -1, -1, -1, -1, -1]
-        Txd[np.where(T == 1),:] = [-1,  1, -1, -1, -1, -1]
-        Txd[np.where(T == 2),:] = [-1, -1,  1, -1, -1, -1]
-        Txd[np.where(T == 3),:] = [-1, -1, -1,  1, -1, -1]
-        Txd[np.where(T == 4),:] = [-1, -1, -1, -1,  1, -1]
-        Txd[np.where(T == 5),:] = [-1, -1, -1, -1, -1,  1]
-
-        # Do not know but row 0 is not assigned properly
-        Txd[0,:] = [-1, -1, -1, -1,  1, -1]
         return Txd
 
     def invKesler(self, T):
