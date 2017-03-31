@@ -32,10 +32,12 @@ def main():
     sex, capitalGain, capitalLoss, hoursWK, country, income = dw.dataPerVariable(data)
 
     # Releasing space
-    del(data)
 
-    print(np.unique(workclass))
-    lc.keslerWorkclass(workclass)
+
+    # np.set_printoptions(edgeitems=9)
+    print(np.unique(data[:,1]))
+    # workclassKesler = lc.keslerWorkclass(workclass)
+    # print(workclassKesler)
 
 
 

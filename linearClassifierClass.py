@@ -34,15 +34,9 @@ class linearClassifier():
         n = workLabels.size
         labels = np.ones((m, n))
         labels *= -1
-        print(labels)
-        print(labels.shape)
         i = 0
         for label in workLabels:
-            print(label)
-            print(np.where(workclass == label))
-            print(labels[np.where(workclass == label)])
             labels[np.where(workclass == label), i] = 1
-            print(labels[np.where(workclass == label)])
             i += 1
         return labels
 
