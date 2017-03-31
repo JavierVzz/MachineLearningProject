@@ -31,15 +31,21 @@ def main():
     age, workclass, fnlwgt, education, educationYrs, marital, occupation, relationship, race, \
     sex, capitalGain, capitalLoss, hoursWK, country, income = dw.dataPerVariable(data)
 
-    # Releasing space
+    # Index of columns to Keslerize
     index = [1,3,5,6,7,8,9,13,14]
+
+    # List of Keslers
     keslerList = []
     np.set_printoptions(edgeitems=9)
     for i in index:
-        print(np.unique(data[:,i]))
-        print(lc.kesler(data[:,i]))
-    # workclassKesler = lc.kesler(workclass)
-    # educationKesler = lc.kesler(education)
+        keslerList.append(lc.kesler(data[:,i]))
+
+    workclassKesler = lc.kesler(workclass)
+    educationKesler = lc.kesler(education)
+
+    # Validating Keslers
+    print(keslerList[0] == workclassKesler)
+    print(keslerList[1] == educationKesler)
 
 
 
