@@ -13,7 +13,7 @@ class dataWrangler():
         data = pd.read_csv(url, header=None)
         return data
 
-    def dataPerLabel(self, data):
+    def dataPerVariable(self, data):
         age = data[:,0]
         workclass = data[:,1]
         fnlwgt = data[:,2]

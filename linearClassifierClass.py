@@ -28,6 +28,9 @@ class linearClassifier():
         W_XaT = np.dot(XaX, W)
         return W_XaT
 
+    def keslerWorkclass(self, workclass):
+        pass
+
     def kesler3Labels(self, Xtrain, d=3):
         m = Xtrain.size
         labels = np.ones((m, d))

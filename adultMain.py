@@ -29,10 +29,12 @@ def main():
     data = data.values
 
     age, workclass, fnlwgt, education, educationYrs, marital, occupation, relationship, race, \
-    sex, capitalGain, capitalLoss, hoursWK, country, income = dw.dataPerLabel(data)
+    sex, capitalGain, capitalLoss, hoursWK, country, income = dw.dataPerVariable(data)
 
     # Releasing space
     del(data)
+
+    print(np.unique(workclass))
 
 
 
