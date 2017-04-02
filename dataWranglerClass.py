@@ -15,8 +15,25 @@ class dataWrangler():
     
     def sortDataPerLabel(self, data):
         labels = np.unique(data)
-        countPerLabel = [data[np.where(data == label)].size for label in labels]
-        return zip(labels, countPerLabel)
+        countPerLabel = [data[np.where(data == label)] for label in labels]
+        return countPerLabel
+
+    def convertDataPerLabel(self, data):
+        labels = np.unique(data)
+        m = data.size
+        toPlot = np.zeros(m)
+        for i in range(len(labels)):
+            toPlot[np.where(data == labels[i])] = i+1
+        return toPlot
+
+
+
+
+
+
+
+                # def arrayPerLabel(self, data):
+    #     labels = np.unique(data)
 
 if __name__ == '__main__':
     print("Direct access to " + os.path.basename(__file__))
