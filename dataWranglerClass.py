@@ -12,28 +12,13 @@ class dataWrangler():
         """Gets the data from the specified URL"""
         data = pd.read_csv(url, header=None)
         return data
-
-    def dataPerVariable(self, data):
-        age = data[:,0]
-        workclass = data[:,1]
-        fnlwgt = data[:,2]
-        education = data[:,3]
-        educationYrs = data[:,4]
-        marital = data[:,5]
-        occupation = data[:,6]
-        relationship = data[:,7]
-        race = data[:,8]
-        sex = data[:,9]
-        capitalGain = data[:,10]
-        capitalLoss = data[:,11]
-        hoursWK = data[:,12]
-        country = data[:,13]
-        income = data [:,14]
-        return age, workclass, fnlwgt, education, educationYrs, marital, occupation, relationship, race,\
-               sex, capitalGain, capitalLoss, hoursWK, country, income
-
-
-
+    
+    def sortDataPerLabel(self, data):
+        labels = np.unique(data)
+        print(labels)
+        # lb1Data = data[np.where(data[:, 0] == label1)]
+        # lb2Data = data[np.where(data[:, 0] == label2)]
+        # return lb1Data, lb2Data
 
 if __name__ == '__main__':
     print("Direct access to " + os.path.basename(__file__))
