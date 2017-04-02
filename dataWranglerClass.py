@@ -19,12 +19,11 @@ class dataWrangler():
         return countPerLabel
 
     def convertDataPerLabel(self, data):
-        labels = np.unique(data)
-        m = data.size
-        toPlot = np.zeros(m)
-        for i in range(len(labels)):
-            toPlot[np.where(data == labels[i])] = i+1
-        return toPlot
+        listLabel =[]
+        for i in range(len(data)):
+            listLabel.append(np.ones(data[i].size)*(i+1))
+        return listLabel
+
 
 
 

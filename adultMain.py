@@ -30,7 +30,8 @@ def main():
     data = data.values
 
     sex = dw.sortDataPerLabel(data[:,9])
-    sexToPlot = dw.convertDataPerLabel(data[:,9])
+    sexToPlot = dw.convertDataPerLabel(sex)
+    # sexToPlot = dw.convertDataPerLabel(data[:,9])
     # print(sex[1].size)
     hc.plotHist1d(sexToPlot)
 

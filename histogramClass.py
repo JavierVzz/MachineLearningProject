@@ -9,7 +9,15 @@ class histogramAdult():
         pass
 
     def plotHist1d(self, data):
-        plt.hist(data)
+
+        # fig = plt.figure()
+        ax = plt.subplot()
+        ax.set_xlim(0, 3)
+        ax.set_xticks([0, 1, 2, 3])
+        ax.set_xticklabels(['', 'Female', 'Male', ''])
+        colors = ["red", "blue"]
+        ax.hist(data, color=colors)
+
         plt.show()
 
 
