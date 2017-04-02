@@ -8,7 +8,7 @@
 
 
 import os
-import linearClassifierClass, dataWranglerClass
+import linearClassifierClass, dataWranglerClass, histogramClass
 import pandas as pd
 import numpy as np
 
@@ -20,6 +20,7 @@ def main():
 
     lc = linearClassifierClass.linearClassifier()
     dw = dataWranglerClass.dataWrangler()
+    hc = histogramClass.histogramAdult()
 
     # Get the data from internet without manual download
     # data is a pandas dataframe
@@ -28,8 +29,11 @@ def main():
     # Pandas data frame to numpy ndarray
     data = data.values
 
-    age, workclass, fnlwgt, education, educationYrs, marital, occupation, relationship, race, \
-    sex, capitalGain, capitalLoss, hoursWK, country, income = dw.dataPerVariable(data)
+    sex = dw.sortDataPerLabel(data[:,9])
+    sexToPlot = dw.convertDataPerLabel(sex)
+    # sexToPlot = dw.convertDataPerLabel(data[:,9])
+    # print(sex[1].size)
+    hc.plotHist1d(sexToPlot)
 
     # Index of columns to Keslerize
     # 1: workclass
@@ -41,7 +45,9 @@ def main():
     # 9: sex
     # 13: country
     # 14: income
-    index = [1,3,5,6,7,8,9,13,14]
+    # index = [1,3,5,6,7,8,9,13,14]
+
+
 
     # List of Keslers
     # 0: workclass
@@ -53,18 +59,18 @@ def main():
     # 6: sex
     # 7: country
     # 8: income
-    keslerList = []
-    np.set_printoptions(edgeitems=9)
-    for i in index:
-        keslerList.append(lc.kesler(data[:,i]))
-
-    workclassKesler = lc.kesler(workclass)
-    educationKesler = lc.kesler(education)
+    # keslerList = []
+    # np.set_printoptions(edgeitems=9)
+    # for i in index:
+    #     keslerList.append(lc.kesler(data[:,i]))
+    #
+    # workclassKesler = lc.kesler(workclass)
+    # educationKesler = lc.kesler(education)
 
     # Validating Keslers
-    print(keslerList[0] == workclassKesler)
-    print(keslerList[1] == educationKesler)
-    print(len(keslerList))
+    # print(keslerList[0] == workclassKesler)
+    # print(keslerList[1] == educationKesler)
+    # print(len(keslerList))
 
     #TODO: Modify kesler to handle binary labels
 
