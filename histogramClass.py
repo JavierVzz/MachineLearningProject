@@ -1,12 +1,16 @@
 import os
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 class histogramAdult():
 
     def __init__(self):
         pass
 
+    def plotHist1d(self, data):
+        plt.hist(data)
+        plt.show()
 
 
 if __name__ == '__main__':

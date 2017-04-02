@@ -29,6 +29,9 @@ def main():
     # Pandas data frame to numpy ndarray
     data = data.values
 
+    print(list(dw.sortDataPerLabel(data[:,9])))
+    # hc.plotHist1d(data[:,9])
+
     # Index of columns to Keslerize
     # 1: workclass
     # 3: education
