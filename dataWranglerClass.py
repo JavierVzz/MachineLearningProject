@@ -20,13 +20,12 @@ class dataWrangler():
 
 
     def sortDataPer2Labels(self, data, label1, label2):
+        labels = []
+        labels.append(np.unique(data[:,label1]))
+        labels.append(np.unique(data[:,label2]))
 
-        labels = np.unique(data[:,label1])
         print(labels)
         countPerLabel = [data[np.where(data == label),:] for label in labels]
-        # print(countPerLabel)
-        # print(len(countPerLabel))
-        # np.set_printoptions(edgeitems=15)
         print(countPerLabel[0][0])
         print(countPerLabel[0][0][np.where(countPerLabel[0][0]== " Female")])
         print(countPerLabel[0][0][np.where(countPerLabel[0][0]== " Male")])
