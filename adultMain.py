@@ -32,7 +32,6 @@ def main():
     #TODO combined histograms
     sex, labels = dw.sortDataPerLabel(data[:,14])
     sexToPlot= dw.convertDataPerLabel(sex)
-    # print(sexToPlot[1] == sexToPlot2[1])
     hc.plotHist1d(sexToPlot, labels)
 
     # Index of columns to Keslerize
@@ -50,6 +49,9 @@ def main():
     labels, countPerLabel = dw.sortDataPer2Labels(data, 14, 9)
     print(labels)
     print(countPerLabel)
+    sex = dw.convertDataPerLabel(countPerLabel)
+    print(sex)
+    hc.plotHist1d(sex, labels)
 
     # List of Keslers
     # 0: workclass
