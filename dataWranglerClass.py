@@ -32,26 +32,9 @@ class dataWrangler():
 
     def sortDataPer2Labels(self, data, *args):
         labels = [np.unique(data[:,arg]) for arg in args]
-        print(labels)
         countPerLabel = [data[np.where(data == label),:] for label in labels[0]]
-
-        # print(len(countPerLabel))
-        # print(countPerLabel[0][0])
-        print(countPerLabel[0][0][np.where(countPerLabel[0][0]== labels[1][0])].size)
-        print(countPerLabel[0][0][np.where(countPerLabel[0][0]== labels[1][1])].size)
-
-        # print(countPerLabel[1][0])
-        print(countPerLabel[1][0][np.where(countPerLabel[1][0]== labels[1][0])].size)
-        print(countPerLabel[1][0][np.where(countPerLabel[1][0]== labels[1][1])].size)
-
-
-        for i in range(len(countPerLabel)):
-            for j in range(len(labels[1])):
-                print(countPerLabel[i][0][np.where(countPerLabel[i][0] == labels[1][j])].size)
-
-        test = [countPerLabel[i][0][np.where(countPerLabel[i][0] == labels[1][j])].size for i in range(len(countPerLabel)) for j in range(len(labels[1])) ]
-
-        print(test)
+        countPerLabel = [countPerLabel[i][0][np.where(countPerLabel[i][0] == labels[1][j])] for i in range(len(countPerLabel)) for j in range(len(labels[1])) ]
+        return labels, countPerLabel
 
     def convertDataPerLabel(self, data):
         listLabel =[]

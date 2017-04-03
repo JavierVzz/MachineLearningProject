@@ -46,7 +46,7 @@ def main():
     # 14: income
     # index = [1,3,5,6,7,8,9,13,14]
 
-    dw.sortDataPer2Labels(data, 14, 9)
+    labels, countPerLabel = dw.sortDataPer2Labels(data, 14, 9)
 
     # List of Keslers
     # 0: workclass
