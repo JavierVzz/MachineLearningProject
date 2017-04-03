@@ -28,7 +28,7 @@ def main():
 
     # Pandas data frame to numpy ndarray
     data = data.values
-    print(data.shape)
+    # print(data.shape)
     sex, labels = dw.sortDataPerLabel(data[:,14])
     sexToPlot = dw.convertDataPerLabel(sex)
     hc.plotHist1d(sexToPlot, labels)
@@ -45,7 +45,7 @@ def main():
     # 14: income
     # index = [1,3,5,6,7,8,9,13,14]
 
-    dw.sortDataPer2Labels(data, label1 = 14, label2 = 9)
+    dw.sortDataPer2Labels(data, 14, 9)
 
     # List of Keslers
     # 0: workclass
