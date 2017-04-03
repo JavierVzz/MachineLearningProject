@@ -28,6 +28,7 @@ def main():
 
     # Pandas data frame to numpy ndarray
     data = data.values
+    print(data.shape)
     sex, labels = dw.sortDataPerLabel(data[:,14])
     sexToPlot = dw.convertDataPerLabel(sex)
     hc.plotHist1d(sexToPlot, labels)
