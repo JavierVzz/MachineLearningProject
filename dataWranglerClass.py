@@ -47,9 +47,11 @@ class dataWrangler():
 
         for i in range(len(countPerLabel)):
             for j in range(len(labels[1])):
-                print(countPerLabel[i][0][np.where(countPerLabel[i][0] == labels[1][j])])
+                print(countPerLabel[i][0][np.where(countPerLabel[i][0] == labels[1][j])].size)
 
+        test = [countPerLabel[i][0][np.where(countPerLabel[i][0] == labels[1][j])].size for i in range(len(countPerLabel)) for j in range(len(labels[1])) ]
 
+        print(test)
 
     def convertDataPerLabel(self, data):
         listLabel =[]
