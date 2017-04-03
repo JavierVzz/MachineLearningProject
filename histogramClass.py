@@ -12,18 +12,16 @@ class histogramAdult():
 
         fig = plt.figure()
         ax = plt.subplot()
-
-        colors = ["red", "blue"]
+        if labels.size == 2:
+            colors = ["red", "blue"]
         ax.hist(data, color=colors, rwidth=1, align="mid", bins=2)
-        ax.set_xlim(0.5, 2.5)
-
-        ax.set_xticklabels(labels)
+        ax.set_xlim(0.5, labels.size+.5)
         xticks = []
         for datum in data:
             xticks.append(datum[0])
             ax.annotate(str(datum.size), xy=(datum[0], datum.size))
-        # ax.set_xticks([1, 2])
         ax.set_xticks(xticks)
+        ax.set_xticklabels(labels)
         plt.show()
 
 

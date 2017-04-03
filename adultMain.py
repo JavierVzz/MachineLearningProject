@@ -28,13 +28,8 @@ def main():
 
     # Pandas data frame to numpy ndarray
     data = data.values
-
-    sex, labels = dw.sortDataPerLabel(data[:,9])
-    # print(sex)
-    # print(labels)
+    sex, labels = dw.sortDataPerLabel(data[:,14])
     sexToPlot = dw.convertDataPerLabel(sex)
-    # sexToPlot = dw.convertDataPerLabel(data[:,9])
-    # print(sex[1].size)
     hc.plotHist1d(sexToPlot, labels)
 
     # Index of columns to Keslerize
@@ -49,7 +44,7 @@ def main():
     # 14: income
     # index = [1,3,5,6,7,8,9,13,14]
 
-
+    dw.sortDataPer2Labels(data, label1 = 14, label2 = 9)
 
     # List of Keslers
     # 0: workclass
