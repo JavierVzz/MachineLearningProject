@@ -18,7 +18,6 @@ class dataWrangler():
         countPerLabel = [data[np.where(data == label)] for label in labels]
         return countPerLabel, labels
 
-
     def Out_sortDataPer2Labels(self, data, label1, label2):
         labels = []
         labels.append(np.unique(data[:,label1]))
@@ -37,11 +36,8 @@ class dataWrangler():
         return labels, countPerLabel
 
     def convertDataPerLabel(self, data):
-        listLabel =[]
-        for i in range(len(data)):
-            listLabel.append(np.ones(data[i].size)*(i+1))
-        return listLabel
-
+        listLabel2 = [np.ones(data[i].size)*(i+1) for i in range(len(data))]
+        return listLabel2
 
 
 
