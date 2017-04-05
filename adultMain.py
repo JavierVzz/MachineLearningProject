@@ -29,9 +29,9 @@ def main():
     # Pandas data frame to numpy ndarray
     data = data.values
     # print(data.shape)
-    income, labels = dw.sortDataPerLabel(data[:,9])
+    labels, income = dw.sortDataPerLabels(data, 14)
     incomeToPlot= dw.convertDataPerLabel(income)
-    hc.plotHist1d(incomeToPlot, labels)
+    # hc.plotHist1d(incomeToPlot, labels)
 
     # Index of columns to Keslerize
     # 1: workclass
@@ -45,9 +45,21 @@ def main():
     # 14: income
     # index = [1,3,5,6,7,8,9,13,14]
 
-    labels, sex = dw.sortDataPer2Labels(data, 14, 9)
+    labels, sex = dw.sortDataPerLabels(data, 9, 14)
     sexToPlot = dw.convertDataPerLabel(sex)
-    hc.plotHistLevel2(sexToPlot, labels)
+    # hc.plotHistLevel2(sexToPlot, labels)
+
+    labels, education = dw.sortDataPerLabels(data, 3, 9, 14)
+    print(labels)
+    print(len(education))
+    print(len(education[0]))
+    print(len(education[0][1]))
+    np.set_printoptions(edgeitems=14)
+    print(education[0][0])
+    print(education[1][0])
+    print(education[2][0])
+    print(education[3][0])
+
 
     #TODO 3rd level histogram
 
