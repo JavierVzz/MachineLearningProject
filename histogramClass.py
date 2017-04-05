@@ -11,23 +11,21 @@ class histogramAdult():
 
     #Updating
     def plotHist1d(self, data, labels):
-
-        fig = plt.figure()
+        # fig = plt.figure()
         ax = plt.subplot()
-        if labels.size == 2:
-            colors = ["red", "blue"]
+        colors = ["r", "b"]
         ax.hist(data, color=colors, rwidth=1, align="mid", bins=2)
-        ax.set_xlim(0.5, labels.size+.5)
+        ax.set_xlim(0.5, len(data)+.5)
         xticks = []
         for datum in data:
             xticks.append(datum[0])
             ax.annotate(str(datum.size), xy=(datum[0], datum.size))
         ax.set_xticks(xticks)
-        ax.set_xticklabels(labels)
+        ax.set_xticklabels(labels[0])
         plt.show()
 
     def plotHistLevel2(self, data, labels):
-        fig = plt.figure()
+        # fig = plt.figure()
         ax = plt.subplot()
         colors = ["r", "b", "r", "b"]
         ax.hist(data, color=colors, rwidth=1, align="mid", bins=len(data))
@@ -38,7 +36,7 @@ class histogramAdult():
         for datum in data:
             ax.annotate(str(datum.size), xy=(datum[0], datum.size))
         ax.set_xticks([1.5,3.5])
-        ax.set_xticklabels(labels[0])
+        ax.set_xticklabels(labels[1])
         plt.show()
 
 
