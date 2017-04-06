@@ -31,13 +31,6 @@ def main():
     print(data.shape)
     labels, income = dw.sortDataPerLabels(data, 14)
     incomeToPlot= dw.convertDataPerLabel(income)
-    # print(labels)
-    # print(income[0][0])
-    # print(len(income[0][0]))
-    # print(len(income[1][0]))
-    # print(len(incomeToPlot))
-
-
     hc.plotHist1d(incomeToPlot, labels)
 
     # Index of columns to Keslerize
@@ -52,13 +45,14 @@ def main():
     # 14: income
     # index = [1,3,5,6,7,8,9,13,14]
 
-    # labels, sex = dw.sortDataPerLabels(data, 9, 14)
-    # sexToPlot = dw.convertDataPerLabel(sex)
-    # hc.plotHistLevel2(sexToPlot, labels)
+    labels, sex = dw.sortDataPerLabels(data, 9, 14)
+    sexToPlot = dw.convertDataPerLabel(sex)
+    print(sexToPlot)
+    hc.plotHistLevel2(sexToPlot, labels)
 
-    # labels, education = dw.sortDataPerLabels(data, 3, 9, 14)
-    # print(labels)
-    # print(len(education))
+    labels, education = dw.sortDataPerLabels(data, 3, 9, 14)
+    print(labels)
+    print(len(education))
     # print(len(education[0]))
     # print(len(education[0][1]))
     # np.set_printoptions(edgeitems=14)
