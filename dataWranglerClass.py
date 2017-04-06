@@ -30,7 +30,7 @@ class dataWrangler():
 
     def convertDataPerLabel(self, data):
         if len(data) == 2:
-            listLabel = [np.ones(data[i].size)*(i+1) for i in range(len(data))]
+            listLabel = [np.ones(len(data[i][0]))*(i+1) for i in range(len(data))]
         elif len(data) == 4:
             listLabel = [np.ones(data[i].size)*(i+1) for i in range(len(data))]
         return listLabel
