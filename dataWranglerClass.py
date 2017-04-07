@@ -34,8 +34,9 @@ class dataWrangler():
         elif len(data) == 4:
             listLabel = [np.ones(len(data[i]))*(i+1) if i==0 or i==3 else np.ones(len(data[i]))*(i+2) if i==1 else np.ones(len(data[i]))*i if i==2 else 0 for i in range(len(data))]
         elif len(data) == 64:
+            listLabel = []
             for i in range(len(data)):
-                print(i)
+                listLabel.append(np.ones(len(data[i][0])) * (i + 1))
         return listLabel
 
 

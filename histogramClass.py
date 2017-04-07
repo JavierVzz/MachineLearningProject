@@ -40,6 +40,26 @@ class histogramAdult():
         ax.set_xticklabels(labels[1])
         plt.show()
 
+    def plotHistLevel3(self, data):
+        ax = plt.subplot()
+        plt.hist(data, bins=len(data))
+        datums = []
+        for datum in data:
+            if len(datum) > 0:
+                datums.append(datum[0])
+            else:
+                datums.append(0)
+        print(datums)
+
+        for i in range(len(data)):
+            ax.annotate(str(data[i].size), xy=(datums[i], len(data[i])))
+
+
+
+        ax.set_xlim(0.5, len(data) + .5)
+        ax.set_ylim(0, 3400)
+        plt.show()
+
 
 if __name__ == '__main__':
     print("Direct access to " + os.path.basename(__file__))
