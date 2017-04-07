@@ -31,7 +31,7 @@ def main():
     print(data.shape)
     labels, income = dw.sortDataPerLabels(data, 14)
     incomeToPlot= dw.convertDataPerLabel(income)
-    hc.plotHist1d(incomeToPlot, labels)
+    # hc.plotHist1d(incomeToPlot, labels)
 
     # Index of columns to Keslerize
     # 1: workclass
@@ -48,24 +48,27 @@ def main():
     labels, sex = dw.sortDataPerLabels(data, 9, 14)
     sexToPlot = dw.convertDataPerLabel(sex)
     print(sexToPlot)
-    hc.plotHistLevel2(sexToPlot, labels)
+    # hc.plotHistLevel2(sexToPlot, labels)
 
     labels, education = dw.sortDataPerLabels(data, 3, 9, 14)
     print(labels)
     print(len(education))
-    # print(len(education[0]))
-    # print(len(education[0][1]))
+
     # np.set_printoptions(edgeitems=14)
-    # print("education[0][0]")
-    # print(education[0][0])
-    # print("education[1][0]")
-    # print(education[1][0])
-    # print("education[2][0]")
-    # print(education[2][0])
-    # print("education[3][0]")
-    # print(education[3][0])
-    # educationToPlot = dw.convertDataPerLabel(education)
-    # print(len(educationToPlot))
+    print("education[0][0]")
+    print(len(education[0][0]))
+    print(np.unique(education[0][0][:,[3,9,14]]))
+    print("education[1][0]")
+    print(len(education[1][0]))
+    print(np.unique(education[1][0][:, [3, 9, 14]]))
+    print("education[2][0]")
+    print(len(education[2][0]))
+    print(np.unique(education[2][0][:, [3, 9, 14]]))
+    print("education[3][0]")
+    print(len(education[3][0]))
+    print(np.unique(education[3][0][:, [3, 9, 14]]))
+    educationToPlot = dw.convertDataPerLabel(education)
+    print(educationToPlot)
 
 
     #TODO 3rd level histogram
