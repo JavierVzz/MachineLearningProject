@@ -19,8 +19,11 @@ class dataWrangler():
             countPerLabel = [data[np.where(data == label), :] for label in labels[0]]
         elif len(args) == 2:
             labels = [np.unique(data[:,arg]) for arg in args]
-            countPerLabel = [data[np.where(data == label),:] for label in labels[0]]
-            countPerLabel = [countPerLabel[i][0][np.where(countPerLabel[i][0] == labels[1][j])] for i in range(len(countPerLabel)) for j in range(len(labels[1])) ]
+            # countPerLabel = [data[np.where(data == label),:] for label in labels[0]]
+            # countPerLabel = [countPerLabel[i][0][np.where(countPerLabel[i][0] == labels[1][j])] for i in range(len(countPerLabel)) for j in range(len(labels[1])) ]
+            income = [data[np.where(data == label), :] for label in labels[0]]
+            countPerLabel = [income[i][0][np.where(income[i][0] == labels[1][j]), :] for i in range(len(labels[0])) for j in range(len(labels[1]))]
+
         elif len(args) == 3:
             labels = [np.unique(data[:,arg]) for arg in args]
             income = [data[np.where(data == label), :] for label in labels[0]]
@@ -33,7 +36,7 @@ class dataWrangler():
         if len(data) == 2:
             listLabel = [np.ones(len(data[i][0]))*(i+1) for i in range(len(data))]
         elif len(data) == 4:
-            listLabel = [np.ones(len(data[i]))*(i+1) if i==0 or i==3 else np.ones(len(data[i]))*(i+2) if i==1 else np.ones(len(data[i]))*i if i==2 else 0 for i in range(len(data))]
+            listLabel = [np.ones(len(data[i][0]))*(i+1) for i in range(len(data))]
         elif len(data) == 64:
             listLabel = [np.ones(len(data[i][0]))*(i+1) for i in range(len(data))]
         return listLabel

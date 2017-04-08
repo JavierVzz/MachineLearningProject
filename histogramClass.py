@@ -27,17 +27,18 @@ class histogramAdult():
     def plotHistLevel2(self, data, labels):
         # fig = plt.figure()
         ax = plt.subplot()
-        colors = ["r", "r", "b", "b"]
+        # colors = ["r", "r", "b", "b"]
         # ax.hist(data, rwidth=1, align="mid", bins=len(data))
-        ax.hist(data, color=colors, rwidth=1, align="mid", bins=len(data))
-        red_patch = mpatches.Patch(color='r', label='Female')
-        blue_patch = mpatches.Patch(color='b', label='Male')
-        plt.legend(handles=[red_patch, blue_patch])
-        ax.set_xlim(0.5, len(data)+.5)
-        for datum in data:
-            ax.annotate(str(datum.size), xy=(datum[0], datum.size))
-        ax.set_xticks([1.6,3.4])
-        ax.set_xticklabels(labels[1])
+        ax.hist(data)
+        # ax.hist(data, color=colors, rwidth=1, align="mid", bins=len(data))
+        # red_patch = mpatches.Patch(color='r', label='Female')
+        # blue_patch = mpatches.Patch(color='b', label='Male')
+        # plt.legend(handles=[red_patch, blue_patch])
+        # ax.set_xlim(0.5, len(data)+.5)
+        # for datum in data:
+        #     ax.annotate(str(datum.size), xy=(datum[0], datum.size))
+        # ax.set_xticks([1.6,3.4])
+        # ax.set_xticklabels(labels[1])
         plt.show()
 
     def plotHistLevel3(self, data):
