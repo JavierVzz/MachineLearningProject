@@ -23,21 +23,39 @@ class dataWrangler():
             countPerLabel = [countPerLabel[i][0][np.where(countPerLabel[i][0] == labels[1][j])] for i in range(len(countPerLabel)) for j in range(len(labels[1])) ]
         elif len(args) == 3:
             labels = [np.unique(data[:,arg]) for arg in args]
-            countPerLabel = [data[np.where(data == label),:] for label in labels[0]]
-            countPerLabel = [countPerLabel[i][0][np.where(countPerLabel[i][0]==label),:] for i in range(len(countPerLabel)) for label in labels[1]]
-            countPerLabel = [countPerLabel[i][0][np.where(countPerLabel[i][0]==label),:] for i in range(len(countPerLabel)) for label in labels[2]]
+            print(labels)
+            income = []
+
+
+            for label in labels[0]:
+                income.append(data[np.where(data == label), :])
+
+            sex = []
+            sex.append(data[np.where(data == labels[0][0]),:])
+            sex.append(data[np.where(data == labels[0][1]),:])
+
+            return labels, income
+            # countPerLabel = [data[np.where(data == label),:] for label in labels[0]]
+            # print("countPerLabel")
+            # print(countPerLabel)
+            # countPerLabel = [countPerLabel[i][0][np.where(countPerLabel[i][0]==label),:] for i in range(len(countPerLabel)) for label in labels[1]]
+            # countPerLabel = [countPerLabel[i][0][np.where(countPerLabel[i][0]==label),:] for i in range(len(countPerLabel)) for label in labels[2]]
         return labels, countPerLabel
 
     def convertDataPerLabel(self, data):
         if len(data) == 2:
             listLabel = [np.ones(len(data[i][0]))*(i+1) for i in range(len(data))]
+            return listLabel
         elif len(data) == 4:
             listLabel = [np.ones(len(data[i]))*(i+1) if i==0 or i==3 else np.ones(len(data[i]))*(i+2) if i==1 else np.ones(len(data[i]))*i if i==2 else 0 for i in range(len(data))]
+            return listLabel
         elif len(data) == 64:
-            listLabel = []
-            for i in range(len(data)):
-                listLabel.append(np.ones(len(data[i][0])) * (i + 1))
-        return listLabel
+            # listLabel = []
+            # for i in range(len(data)):
+            #     listLabel.append(np.ones(len(data[i][0])) * (i + 1))
+            listLabel = [np.ones(len(data[i][0])) * (i + 1) for i in range(len(data))]
+
+            return listLabel
 
 
 
