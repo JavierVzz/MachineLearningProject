@@ -28,10 +28,10 @@ def main():
 
     # Pandas data frame to numpy ndarray
     data = data.values
-    # print(data.shape)
-    # labels, income = dw.sortDataPerLabels(data, 14)
-    # incomeToPlot = dw.convertDataPerLabel(income)
-    # hc.plotHist1d(incomeToPlot, labels)
+    print(data.shape)
+    labels, income = dw.sortDataPerLabels(data, 14)
+    incomeToPlot = dw.convertDataPerLabel(income)
+    hc.plotHist1d(incomeToPlot, labels)
 
     # Index of columns to Keslerize
     # 1: workclass
@@ -45,51 +45,14 @@ def main():
     # 14: income
     # index = [1,3,5,6,7,8,9,13,14]
 
-    # labels, sex = dw.sortDataPerLabels(data, 9, 14)
-    # sexToPlot = dw.convertDataPerLabel(sex)
-    # print(sexToPlot)
-    # hc.plotHistLevel2(sexToPlot, labels)
+    labels, sex = dw.sortDataPerLabels(data, 9, 14)
+    sexToPlot = dw.convertDataPerLabel(sex)
+    print(sexToPlot)
+    hc.plotHistLevel2(sexToPlot, labels)
 
     labels, education = dw.sortDataPerLabels(data, 14, 9, 3)
-    print(labels[0])
-    print(len(education))
-    i = 1
-    for grade in education:
-        print(i)
-        i += 1
-        print(grade[0].shape)
-        print(np.unique(grade[0][:,[14, 9, 3]]))
-
-
-    # np.set_printoptions(edgeitems=14)
-    # print("education[0][0]")
-    # print(len(education[0][0]))
-    # print(np.unique(education[0][0][:,[3,9,14]]))
-    # print("education[1][0]")
-    # print(len(education[1][0]))
-    # print(np.unique(education[1][0][:, [3, 9, 14]]))
-    # print("education[2][0]")
-    # print(len(education[2][0]))
-    # print(np.unique(education[2][0][:, [3, 9, 14]]))
-    # print("education[3][0]")
-    # print(len(education[3][0]))
-    # print(np.unique(education[3][0][:, [3, 9, 14]]))
-    # educationToPlot = dw.convertDataPerLabel(education)
-    # print(len(educationToPlot))
-    # print(np.unique(educationToPlot[0]))
-    # print(len(educationToPlot[0]))
-    # print(np.unique(educationToPlot[1]))
-    # print(len(educationToPlot[1]))
-    # print(np.unique(educationToPlot[2]))
-    # print(len(educationToPlot[2]))
-    # print(np.unique(educationToPlot[3]))
-    # print(len(educationToPlot[3]))
-    #
-    # toPlot = []
-    # for i in range(len(educationToPlot)):
-    #     toPlot.append(educationToPlot[i])
-    # print(toPlot[0][0])
-    # hc.plotHistLevel3(toPlot)
+    educationToPlot = dw.convertDataPerLabel(education)
+    hc.plotHistLevel3(educationToPlot)
 
 
     #TODO 3rd level histogram

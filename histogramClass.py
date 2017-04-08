@@ -49,13 +49,8 @@ class histogramAdult():
                 datums.append(datum[0])
             else:
                 datums.append(0)
-        print(datums)
-
         for i in range(len(data)):
             ax.annotate(str(data[i].size), xy=(datums[i], len(data[i])))
-
-
-
         ax.set_xlim(0.5, len(data) + .5)
         ax.set_ylim(0, 3400)
         plt.show()
