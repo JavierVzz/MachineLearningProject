@@ -24,27 +24,93 @@ class dataWrangler():
         elif len(args) == 3:
             labels = [np.unique(data[:,arg]) for arg in args]
             print(labels)
-            # income = []
-            #
-            # for label in labels[0]:
-            #     income.append(data[np.where(data == label), :])
-
             income = [data[np.where(data == label), :] for label in labels[0]]
 
-            sex = []
+            # sex = []
             # sex.append(income[0][0][np.where(income[0][0] == labels[1][0]),:])
             # sex.append(income[0][0][np.where(income[0][0] == labels[1][1]),:])
             # sex.append(income[1][0][np.where(income[1][0] == labels[1][0]),:])
             # sex.append(income[1][0][np.where(income[1][0] == labels[1][1]),:])
 
+            # for i in range(len(labels[0])):
+            #     for j in range(len(labels[1])):
+            #         sex.append(income[i][0][np.where(income[i][0] == labels[1][j]), :])
 
-            for i in range(len(labels[0])):
-                for j in range(len(labels[1])):
-                    sex.append(income[i][0][np.where(income[i][0] == labels[1][j]), :])
+            sex = [income[i][0][np.where(income[i][0] == labels[1][j]), :] for i in range(len(labels[0])) for j in range(len(labels[1]))]
+
+            print(len(labels[2]))
+
+            education = []
+            education.append(sex[0][0][np.where(sex[0][0] == labels[2][0]),:])
+            education.append(sex[0][0][np.where(sex[0][0] == labels[2][1]),:])
+            education.append(sex[0][0][np.where(sex[0][0] == labels[2][2]),:])
+            education.append(sex[0][0][np.where(sex[0][0] == labels[2][3]),:])
+            education.append(sex[0][0][np.where(sex[0][0] == labels[2][4]),:])
+            education.append(sex[0][0][np.where(sex[0][0] == labels[2][5]),:])
+            education.append(sex[0][0][np.where(sex[0][0] == labels[2][6]),:])
+            education.append(sex[0][0][np.where(sex[0][0] == labels[2][7]),:])
+            education.append(sex[0][0][np.where(sex[0][0] == labels[2][8]),:])
+            education.append(sex[0][0][np.where(sex[0][0] == labels[2][9]),:])
+            education.append(sex[0][0][np.where(sex[0][0] == labels[2][10]),:])
+            education.append(sex[0][0][np.where(sex[0][0] == labels[2][11]),:])
+            education.append(sex[0][0][np.where(sex[0][0] == labels[2][12]),:])
+            education.append(sex[0][0][np.where(sex[0][0] == labels[2][13]),:])
+            education.append(sex[0][0][np.where(sex[0][0] == labels[2][14]),:])
+            education.append(sex[0][0][np.where(sex[0][0] == labels[2][15]),:])
+
+            education.append(sex[1][0][np.where(sex[1][0] == labels[2][0]),:])
+            education.append(sex[1][0][np.where(sex[1][0] == labels[2][1]),:])
+            education.append(sex[1][0][np.where(sex[1][0] == labels[2][2]),:])
+            education.append(sex[1][0][np.where(sex[1][0] == labels[2][3]),:])
+            education.append(sex[1][0][np.where(sex[1][0] == labels[2][4]),:])
+            education.append(sex[1][0][np.where(sex[1][0] == labels[2][5]),:])
+            education.append(sex[1][0][np.where(sex[1][0] == labels[2][6]),:])
+            education.append(sex[1][0][np.where(sex[1][0] == labels[2][7]),:])
+            education.append(sex[1][0][np.where(sex[1][0] == labels[2][8]),:])
+            education.append(sex[1][0][np.where(sex[1][0] == labels[2][9]),:])
+            education.append(sex[1][0][np.where(sex[1][0] == labels[2][10]),:])
+            education.append(sex[1][0][np.where(sex[1][0] == labels[2][11]),:])
+            education.append(sex[1][0][np.where(sex[1][0] == labels[2][12]),:])
+            education.append(sex[1][0][np.where(sex[1][0] == labels[2][13]),:])
+            education.append(sex[1][0][np.where(sex[1][0] == labels[2][14]),:])
+            education.append(sex[1][0][np.where(sex[1][0] == labels[2][15]),:])
+
+            education.append(sex[2][0][np.where(sex[2][0] == labels[2][0]),:])
+            education.append(sex[2][0][np.where(sex[2][0] == labels[2][1]),:])
+            education.append(sex[2][0][np.where(sex[2][0] == labels[2][2]),:])
+            education.append(sex[2][0][np.where(sex[2][0] == labels[2][3]),:])
+            education.append(sex[2][0][np.where(sex[2][0] == labels[2][4]),:])
+            education.append(sex[2][0][np.where(sex[2][0] == labels[2][5]),:])
+            education.append(sex[2][0][np.where(sex[2][0] == labels[2][6]),:])
+            education.append(sex[2][0][np.where(sex[2][0] == labels[2][7]),:])
+            education.append(sex[2][0][np.where(sex[2][0] == labels[2][8]),:])
+            education.append(sex[2][0][np.where(sex[2][0] == labels[2][9]),:])
+            education.append(sex[2][0][np.where(sex[2][0] == labels[2][10]),:])
+            education.append(sex[2][0][np.where(sex[2][0] == labels[2][11]),:])
+            education.append(sex[2][0][np.where(sex[2][0] == labels[2][12]),:])
+            education.append(sex[2][0][np.where(sex[2][0] == labels[2][13]),:])
+            education.append(sex[2][0][np.where(sex[2][0] == labels[2][14]),:])
+            education.append(sex[2][0][np.where(sex[2][0] == labels[2][15]),:])
+
+            education.append(sex[3][0][np.where(sex[3][0] == labels[2][0]),:])
+            education.append(sex[3][0][np.where(sex[3][0] == labels[2][1]),:])
+            education.append(sex[3][0][np.where(sex[3][0] == labels[2][2]),:])
+            education.append(sex[3][0][np.where(sex[3][0] == labels[2][3]),:])
+            education.append(sex[3][0][np.where(sex[3][0] == labels[2][4]),:])
+            education.append(sex[3][0][np.where(sex[3][0] == labels[2][5]),:])
+            education.append(sex[3][0][np.where(sex[3][0] == labels[2][6]),:])
+            education.append(sex[3][0][np.where(sex[3][0] == labels[2][7]),:])
+            education.append(sex[3][0][np.where(sex[3][0] == labels[2][8]),:])
+            education.append(sex[3][0][np.where(sex[3][0] == labels[2][9]),:])
+            education.append(sex[3][0][np.where(sex[3][0] == labels[2][10]),:])
+            education.append(sex[3][0][np.where(sex[3][0] == labels[2][11]),:])
+            education.append(sex[3][0][np.where(sex[3][0] == labels[2][12]),:])
+            education.append(sex[3][0][np.where(sex[3][0] == labels[2][13]),:])
+            education.append(sex[3][0][np.where(sex[3][0] == labels[2][14]),:])
+            education.append(sex[3][0][np.where(sex[3][0] == labels[2][15]),:])
 
 
-
-            return labels, sex
+            return labels, education
             # countPerLabel = [data[np.where(data == label),:] for label in labels[0]]
             # print("countPerLabel")
             # print(countPerLabel)
