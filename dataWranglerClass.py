@@ -33,12 +33,7 @@ class dataWrangler():
         return labels, countPerLabel
 
     def convertDataPerLabel(self, data):
-        if len(data) == 2:
-            listLabel = [np.ones(len(data[i][0]))*(i+1) for i in range(len(data))]
-        elif len(data) == 4:
-            listLabel = [np.ones(len(data[i][0]))*(i+1) for i in range(len(data))]
-        elif len(data) == 64:
-            listLabel = [np.ones(len(data[i][0]))*(i+1) for i in range(len(data))]
+        listLabel = [np.ones(len(data[i][0]))*(i+1) for i in range(len(data))]
         return listLabel
 
 
