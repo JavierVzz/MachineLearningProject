@@ -24,17 +24,27 @@ class dataWrangler():
         elif len(args) == 3:
             labels = [np.unique(data[:,arg]) for arg in args]
             print(labels)
-            income = []
+            # income = []
+            #
+            # for label in labels[0]:
+            #     income.append(data[np.where(data == label), :])
 
-
-            for label in labels[0]:
-                income.append(data[np.where(data == label), :])
+            income = [data[np.where(data == label), :] for label in labels[0]]
 
             sex = []
-            sex.append(data[np.where(data == labels[0][0]),:])
-            sex.append(data[np.where(data == labels[0][1]),:])
+            # sex.append(income[0][0][np.where(income[0][0] == labels[1][0]),:])
+            # sex.append(income[0][0][np.where(income[0][0] == labels[1][1]),:])
+            # sex.append(income[1][0][np.where(income[1][0] == labels[1][0]),:])
+            # sex.append(income[1][0][np.where(income[1][0] == labels[1][1]),:])
 
-            return labels, income
+
+            for i in range(len(labels[0])):
+                for j in range(len(labels[1])):
+                    sex.append(income[i][0][np.where(income[i][0] == labels[1][j]), :])
+
+
+
+            return labels, sex
             # countPerLabel = [data[np.where(data == label),:] for label in labels[0]]
             # print("countPerLabel")
             # print(countPerLabel)

@@ -56,6 +56,10 @@ def main():
     print(education[0][0][:,[14, 9, 3]])
     print(education[1][0].shape)
     print(education[1][0][:,[14, 9, 3]])
+    print(education[2][0].shape)
+    print(education[2][0][:,[14, 9, 3]])
+    print(education[3][0].shape)
+    print(education[3][0][:,[14, 9, 3]])
 
     # np.set_printoptions(edgeitems=14)
     # print("education[0][0]")
