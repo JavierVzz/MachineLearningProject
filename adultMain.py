@@ -52,7 +52,7 @@ def main():
 
     labels, education = dw.sortDataPerLabels(data, 14, 9, 3)
     educationToPlot = dw.convertDataPerLabel(education)
-    hc.plotHistLevel3(educationToPlot)
+    hc.plotHistLevel3(educationToPlot, labels)
 
 
     #TODO 3rd level histogram
