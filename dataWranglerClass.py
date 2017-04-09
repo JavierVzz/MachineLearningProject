@@ -2,7 +2,6 @@ import os
 import pandas as pd
 import numpy as np
 
-
 class dataWrangler():
 
     def __init__(self):
@@ -32,8 +31,6 @@ class dataWrangler():
     def convertDataPerLabel(self, data):
         listLabel = [np.ones(len(data[i][0]))*(i+1) for i in range(len(data))]
         return listLabel
-
-
 
 if __name__ == '__main__':
     print("Direct access to " + os.path.basename(__file__))
