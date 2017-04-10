@@ -56,51 +56,51 @@ def main():
     labels, income = dw.sortDataPerLabels(data, 14)
     incomeToPlot = dw.convertDataPerLabel(income)
     hc.plotHist1d(incomeToPlot, labels)
-
-    #Workclass
-    labels, sex = dw.sortDataPerLabels(data, 14, 1)
-    sexToPlot = dw.convertDataPerLabel(sex)
-    hc.plotHistLevel2(sexToPlot, labels)
-
-    #SEX
-    labels, sex = dw.sortDataPerLabels(data, 14, 9)
-    sexToPlot = dw.convertDataPerLabel(sex)
-    hc.plotHistLevel2(sexToPlot, labels)
-
-    #RACE
-    labels, sex = dw.sortDataPerLabels(data, 14, 8)
-    sexToPlot = dw.convertDataPerLabel(sex)
-    hc.plotHistLevel2(sexToPlot, labels)
-
-    #RELATIONSHIP
-    labels, sex = dw.sortDataPerLabels(data, 14, 7)
-    sexToPlot = dw.convertDataPerLabel(sex)
-    hc.plotHistLevel2(sexToPlot, labels)
-
-    # MARITAL
-    labels, sex = dw.sortDataPerLabels(data, 14, 5)
-    sexToPlot = dw.convertDataPerLabel(sex)
-    hc.plotHistLevel2(sexToPlot, labels)
-
-    # OCCUPATION
-    labels, sex = dw.sortDataPerLabels(data, 14, 6)
-    sexToPlot = dw.convertDataPerLabel(sex)
-    hc.plotHistLevel2(sexToPlot, labels)
-
-    # EDUCATION
-    labels, sex = dw.sortDataPerLabels(data, 14, 3)
-    sexToPlot = dw.convertDataPerLabel(sex)
-    hc.plotHistLevel2(sexToPlot, labels)
-
-    # COUNTRY
-    labels, sex = dw.sortDataPerLabels(data, 14, 13)
-    sexToPlot = dw.convertDataPerLabel(sex)
-    hc.plotHistLevel2(sexToPlot, labels)
-
-    labels, education = dw.sortDataPerLabels(data, 14, 9, 3)
-    educationToPlot = dw.convertDataPerLabel(education)
-    hc.plotHistLevel3(educationToPlot, labels)
-
+    #
+    # #Workclass
+    # labels, sex = dw.sortDataPerLabels(data, 14, 1)
+    # sexToPlot = dw.convertDataPerLabel(sex)
+    # hc.plotHistLevel2(sexToPlot, labels)
+    #
+    # #SEX
+    # labels, sex = dw.sortDataPerLabels(data, 14, 9)
+    # sexToPlot = dw.convertDataPerLabel(sex)
+    # hc.plotHistLevel2(sexToPlot, labels)
+    #
+    # #RACE
+    # labels, sex = dw.sortDataPerLabels(data, 14, 8)
+    # sexToPlot = dw.convertDataPerLabel(sex)
+    # hc.plotHistLevel2(sexToPlot, labels)
+    #
+    # #RELATIONSHIP
+    # labels, sex = dw.sortDataPerLabels(data, 14, 7)
+    # sexToPlot = dw.convertDataPerLabel(sex)
+    # hc.plotHistLevel2(sexToPlot, labels)
+    #
+    # # MARITAL
+    # labels, sex = dw.sortDataPerLabels(data, 14, 5)
+    # sexToPlot = dw.convertDataPerLabel(sex)
+    # hc.plotHistLevel2(sexToPlot, labels)
+    #
+    # # OCCUPATION
+    # labels, sex = dw.sortDataPerLabels(data, 14, 6)
+    # sexToPlot = dw.convertDataPerLabel(sex)
+    # hc.plotHistLevel2(sexToPlot, labels)
+    #
+    # # EDUCATION
+    # labels, sex = dw.sortDataPerLabels(data, 14, 3)
+    # sexToPlot = dw.convertDataPerLabel(sex)
+    # hc.plotHistLevel2(sexToPlot, labels)
+    #
+    # # COUNTRY
+    # labels, sex = dw.sortDataPerLabels(data, 14, 13)
+    # sexToPlot = dw.convertDataPerLabel(sex)
+    # hc.plotHistLevel2(sexToPlot, labels)
+    #
+    # labels, education = dw.sortDataPerLabels(data, 14, 9, 3)
+    # educationToPlot = dw.convertDataPerLabel(education)
+    # hc.plotHistLevel3(educationToPlot, labels)
+    #
 
     #TODO 3rd level histogram
 

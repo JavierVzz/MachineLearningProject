@@ -17,12 +17,32 @@ class histogramAdult():
         colors = ["r", "b"]
         ax.hist(data, color=colors, rwidth=1, align="mid", bins=2)
         ax.set_xlim(0.5, len(data)+.5)
+
         xticks = []
+        # for datum in data:
+        #     xticks.append(datum[0])
+        #     ax.annotate(str(datum.size), xy=(datum[0], datum.size))
+        i = 1.5
         for datum in data:
-            xticks.append(datum[0])
-            ax.annotate(str(datum.size), xy=(datum[0], datum.size))
+            if datum.size == 0:
+                plt.text(i, 0, 0, fontsize=14, horizontalalignment='center', verticalalignment='center')
+            else:
+                plt.text(datum[0], datum.size + 100, datum.size, fontsize=14, horizontalalignment='center',
+                         verticalalignment='center')
+            i += 1
+        maxY = max([len(datum) for datum in data])
+        ax.set_ylim(0, maxY + 500)
         ax.set_xticks([1.15, 1.85])
         ax.set_xticklabels(labels[0])
+        p = mpatches.Rectangle((0, 0), (len(data) / 2) + .5, maxY + 500, facecolor="y", alpha=.2)
+        q = mpatches.Rectangle(((len(data) / 2) + .5, 0), len(data) / 2, maxY + 500, facecolor="g", alpha=.2)
+        plt.text(.75, maxY + 100, labels[0][0], fontsize=15, horizontalalignment='center',
+                 verticalalignment='center', bbox=dict(facecolor='y'))
+        plt.text(2, maxY + 100, labels[0][1], fontsize=15, horizontalalignment='center',
+                 verticalalignment='center', bbox=dict(facecolor='g'))
+
+        ax.add_patch(p)
+        ax.add_patch(q)
         plt.show()
 
     def plotHistLevel2(self, data, labels):
