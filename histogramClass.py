@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 import numpy as np
+import linearClassifierClass
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
@@ -44,22 +45,32 @@ class histogramAdult():
             colors = ["r", "b", "k", "y", "g", "c", "m"]
             colors *= 2
             patches = [mpatches.Patch(color=colors[i], label=labels[1][i]) for i in range(len(labels[1]))]
-        elif len(labels[1]) == 15:
-            colors = ["r", "b", "k", "y", "g", "c", "m", "w", "pink", "orange", "#ff8000", "pink", "pink", "pink", "pink"]
+        elif len(labels[1]) >= 15:
+            lc = linearClassifierClass.linearClassifier()
+            file = "ColorsHTML.xlsx"
+            sheet = "Colors"
+            cols = "B"
+            skip = 0
+            colorHTML = lc.loadData(file, sheet, cols, skip)
+            colors = [colorHTML[i][0] for i in range(len(labels[1]))]
             colors *= 2
             patches = [mpatches.Patch(color=colors[i], label=labels[1][i]) for i in range(len(labels[1]))]
         plt.legend(handles=patches)
         ax.hist(data, color=colors, rwidth=1, align="mid", bins=len(data))
-        # ax.hist(data)
         maxY = max([len(datum) for datum in data])
-
+        i = 1
         for datum in data:
-            plt.text(datum[0], datum.size+100, datum.size, fontsize=14, horizontalalignment='center',verticalalignment='center')
-
+            if datum.size == 0:
+                plt.text(i, 0, 0, fontsize=14, horizontalalignment='center',verticalalignment='center')
+            else:
+                plt.text(datum[0], datum.size+100, datum.size, fontsize=14, horizontalalignment='center',verticalalignment='center')
+            i += 1
         p = mpatches.Rectangle((0, 0), (len(data)/2)+.5, maxY+500, facecolor="y", alpha=.2)
         q = mpatches.Rectangle(((len(data)/2)+.5, 0), len(data)/2, maxY+500, facecolor="g", alpha=.2)
         ax.add_patch(p)
         ax.add_patch(q)
+        plt.text(len(data)/4+.5, maxY+100, labels[0][0], fontsize=15, horizontalalignment='center', verticalalignment='center',bbox=dict(facecolor='y'))
+        plt.text(len(data)*.75+.25, maxY+100, labels[0][1], fontsize=15, horizontalalignment='center', verticalalignment='center',bbox=dict(facecolor='g'))
         ax.set_xticks([i for i in range(1, len(data)+1)])
         ax.set_ylim(0, maxY+500)
         xticks = [label for label in labels[1]]
@@ -82,7 +93,6 @@ class histogramAdult():
         ax.add_patch(p)
         ax.add_patch(q)
 
-        print(labels[2])
         datums = []
         for datum in data:
             if len(datum) > 0:

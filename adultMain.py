@@ -28,14 +28,6 @@ def main():
     skip = 0
     data = lc.loadData(file, sheet, cols, skip)
 
-    file = "ColorsHTML.xlsx"
-    sheet = "Colors"
-    cols = "B"
-    skip = 0
-    colorHTML = lc.loadData(file, sheet, cols, skip)
-
-
-
     # Get the data from internet without manual download
     # data is a pandas dataframe
     # data = dw.getData(url)
@@ -60,41 +52,49 @@ def main():
     # 14: income
     # index = [1,3,5,6,7,8,9,13,14]
 
-    print(np.unique(data[:,7]))
-    print(len(np.unique(data[:,7])))
 
-    # labels, income = dw.sortDataPerLabels(data, 14)
-    # incomeToPlot = dw.convertDataPerLabel(income)
-    # hc.plotHist1d(incomeToPlot, labels)
+    labels, income = dw.sortDataPerLabels(data, 14)
+    incomeToPlot = dw.convertDataPerLabel(income)
+    hc.plotHist1d(incomeToPlot, labels)
 
     #SEX
-    # labels, sex = dw.sortDataPerLabels(data, 14, 9)
-    # sexToPlot = dw.convertDataPerLabel(sex)
-    # hc.plotHistLevel2(sexToPlot, labels)
+    labels, sex = dw.sortDataPerLabels(data, 14, 9)
+    sexToPlot = dw.convertDataPerLabel(sex)
+    hc.plotHistLevel2(sexToPlot, labels)
 
     #RACE
-    # labels, sex = dw.sortDataPerLabels(data, 14, 5)
-    # sexToPlot = dw.convertDataPerLabel(sex)
-    # hc.plotHistLevel2(sexToPlot, labels)
+    labels, sex = dw.sortDataPerLabels(data, 14, 8)
+    sexToPlot = dw.convertDataPerLabel(sex)
+    hc.plotHistLevel2(sexToPlot, labels)
 
     #RELATIONSHIP
-    # labels, sex = dw.sortDataPerLabels(data, 14, 7)
-    # sexToPlot = dw.convertDataPerLabel(sex)
-    # hc.plotHistLevel2(sexToPlot, labels)
+    labels, sex = dw.sortDataPerLabels(data, 14, 7)
+    sexToPlot = dw.convertDataPerLabel(sex)
+    hc.plotHistLevel2(sexToPlot, labels)
 
     # MARITAL
-    # labels, sex = dw.sortDataPerLabels(data, 14, 5)
-    # sexToPlot = dw.convertDataPerLabel(sex)
-    # hc.plotHistLevel2(sexToPlot, labels)
+    labels, sex = dw.sortDataPerLabels(data, 14, 5)
+    sexToPlot = dw.convertDataPerLabel(sex)
+    hc.plotHistLevel2(sexToPlot, labels)
 
     # OCCUPATION
-    # labels, sex = dw.sortDataPerLabels(data, 14, 6)
-    # sexToPlot = dw.convertDataPerLabel(sex)
-    # hc.plotHistLevel2(sexToPlot, labels)
+    labels, sex = dw.sortDataPerLabels(data, 14, 6)
+    sexToPlot = dw.convertDataPerLabel(sex)
+    hc.plotHistLevel2(sexToPlot, labels)
 
-    # labels, education = dw.sortDataPerLabels(data, 14, 9, 3)
-    # educationToPlot = dw.convertDataPerLabel(education)
-    # hc.plotHistLevel3(educationToPlot, labels)
+    # EDUCATION
+    labels, sex = dw.sortDataPerLabels(data, 14, 3)
+    sexToPlot = dw.convertDataPerLabel(sex)
+    hc.plotHistLevel2(sexToPlot, labels)
+
+    # COUNTRY
+    labels, sex = dw.sortDataPerLabels(data, 14, 13)
+    sexToPlot = dw.convertDataPerLabel(sex)
+    hc.plotHistLevel2(sexToPlot, labels)
+
+    labels, education = dw.sortDataPerLabels(data, 14, 9, 3)
+    educationToPlot = dw.convertDataPerLabel(education)
+    hc.plotHistLevel3(educationToPlot, labels)
 
 
     #TODO 3rd level histogram
