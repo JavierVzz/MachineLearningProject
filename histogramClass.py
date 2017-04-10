@@ -26,20 +26,45 @@ class histogramAdult():
 
     def plotHistLevel2(self, data, labels):
         # fig = plt.figure()
+        colors = patches = []
         ax = plt.subplot()
-        # colors = ["r", "b", "r", "b"]
-        # ax.hist(data, rwidth=1, align="mid", bins=len(data))
-        # ax.hist(data, bins=len(data))
-        # ax.hist(data, color=colors, rwidth=1, align="mid", bins=len(data))
-        ax.hist(data)
-        # red_patch = mpatches.Patch(color='r', label='Female')
-        # blue_patch = mpatches.Patch(color='b', label='Male')
-        # plt.legend(handles=[red_patch, blue_patch])
-        # ax.set_xlim(0.5, len(data)+.5)
-        # for datum in data:
-        #     ax.annotate(str(datum.size), xy=(datum[0], datum.size))
-        # ax.set_xticks([1.6,3.4])
-        # ax.set_xticklabels(labels[0])
+        if len(labels[1]) == 2:
+            colors = ["r", "b"]
+            colors *= 2
+            patches = [mpatches.Patch(color=colors[i], label=labels[1][i]) for i in range(len(labels[1]))]
+        elif len(labels[1]) == 5:
+            colors = ["r", "b", "k", "y", "g"]
+            colors *= 2
+            patches = [mpatches.Patch(color=colors[i], label=labels[1][i]) for i in range(len(labels[1]))]
+        elif len(labels[1]) == 6:
+            colors = ["r", "b", "k", "y", "g", "c"]
+            colors *= 2
+            patches = [mpatches.Patch(color=colors[i], label=labels[1][i]) for i in range(len(labels[1]))]
+        elif len(labels[1]) == 7:
+            colors = ["r", "b", "k", "y", "g", "c", "m"]
+            colors *= 2
+            patches = [mpatches.Patch(color=colors[i], label=labels[1][i]) for i in range(len(labels[1]))]
+        elif len(labels[1]) == 15:
+            colors = ["r", "b", "k", "y", "g", "c", "m", "w", "pink", "orange", "#ff8000", "pink", "pink", "pink", "pink"]
+            colors *= 2
+            patches = [mpatches.Patch(color=colors[i], label=labels[1][i]) for i in range(len(labels[1]))]
+        plt.legend(handles=patches)
+        ax.hist(data, color=colors, rwidth=1, align="mid", bins=len(data))
+        # ax.hist(data)
+        maxY = max([len(datum) for datum in data])
+
+        for datum in data:
+            plt.text(datum[0], datum.size+100, datum.size, fontsize=14, horizontalalignment='center',verticalalignment='center')
+
+        p = mpatches.Rectangle((0, 0), (len(data)/2)+.5, maxY+500, facecolor="y", alpha=.2)
+        q = mpatches.Rectangle(((len(data)/2)+.5, 0), len(data)/2, maxY+500, facecolor="g", alpha=.2)
+        ax.add_patch(p)
+        ax.add_patch(q)
+        ax.set_xticks([i for i in range(1, len(data)+1)])
+        ax.set_ylim(0, maxY+500)
+        xticks = [label for label in labels[1]]
+        xticks *= 2
+        ax.set_xticklabels(xticks, rotation='vertical')
         plt.show()
 
     def plotHistLevel3(self, data, labels):
