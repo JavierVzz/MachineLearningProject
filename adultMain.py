@@ -57,6 +57,11 @@ def main():
     incomeToPlot = dw.convertDataPerLabel(income)
     hc.plotHist1d(incomeToPlot, labels)
 
+    #Workclass
+    labels, sex = dw.sortDataPerLabels(data, 14, 1)
+    sexToPlot = dw.convertDataPerLabel(sex)
+    hc.plotHistLevel2(sexToPlot, labels)
+
     #SEX
     labels, sex = dw.sortDataPerLabels(data, 14, 9)
     sexToPlot = dw.convertDataPerLabel(sex)

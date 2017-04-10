@@ -45,7 +45,7 @@ class histogramAdult():
             colors = ["r", "b", "k", "y", "g", "c", "m"]
             colors *= 2
             patches = [mpatches.Patch(color=colors[i], label=labels[1][i]) for i in range(len(labels[1]))]
-        elif len(labels[1]) >= 15:
+        elif len(labels[1]) >= 9:
             lc = linearClassifierClass.linearClassifier()
             file = "ColorsHTML.xlsx"
             sheet = "Colors"
